@@ -15,8 +15,10 @@ class Board(Canvas): # inheirating from the Canvas class
     def read_text_file(self, filename):
         pass
 
-
     def create_tape(self, matrix):
+        pass
+
+    def valid_move(self):
         pass
 
 
