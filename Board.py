@@ -1,4 +1,5 @@
 from tkinter import Canvas
+from Tape import Tape
 
 class Board(Canvas): # inheirating from the Canvas class
 
@@ -9,8 +10,13 @@ class Board(Canvas): # inheirating from the Canvas class
 
         # create the canvas
         super().__init__(frame, width = WIDTH, height = HEIGHT)
+        frame.minsize(HEIGHT, WIDTH)
 
-        self.player = _player
+        # create sample tape
+
+        Tape(self, 0,0,25,100)
+
+        # self.player = _player
 
     def read_text_file(self, filename):
         pass
