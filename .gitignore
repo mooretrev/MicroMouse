@@ -1,1 +1,3 @@
 .R*
+.idea*
+__pycache__*
