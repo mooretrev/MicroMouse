@@ -19,7 +19,7 @@ class Board(Canvas): # inheirating from the Canvas class
         Tape(self, 0,0,25,100)
 
         # create player
-        self.player = Player(self)
+        self.player = Player(frame, self)
 
 
 
