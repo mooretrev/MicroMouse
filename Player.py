@@ -11,6 +11,9 @@ class Player:
         self.cont_move_right = False
         self.cont_move_down = False
         self.cont_move_up = False
+        self.x = 0
+        self.y = 0
+        self.move_speed = 3
 
     def move_right(self, event):
         if(event.type == EventType.KeyPress):
@@ -22,8 +25,9 @@ class Player:
 
     def start_move_right(self):
         if (self.cont_move_right):
-            self.canvas.move(self.player, 2, 0)
+            self.canvas.move(self.player, self.move_speed, 0)
             self.canvas.update()
+            self.x += self.move_speed
             self.root.after(0, self.start_move_right)
 
     def stop_move_right(self, event):
@@ -39,8 +43,10 @@ class Player:
 
     def start_move_left(self):
         if self.cont_move_left:
-            self.canvas.move(self.player, -2, 0)
+            self.canvas.move(self.player, -self.move_speed, 0)
             self.canvas.update()
+            self.x -= self.move_speed
+            print('player x {} y {}'.format(self.x, self.y))
             self.root.after(0, func=self.start_move_left)
 
     def stop_move_left(self):
@@ -56,8 +62,9 @@ class Player:
 
     def start_move_down(self):
         if (self.cont_move_down):
-            self.canvas.move(self.player, 0, 2)
+            self.canvas.move(self.player, 0, self.move_speed)
             self.canvas.update()
+            self.y += self.move_speed
             self.root.after(0, self.start_move_down)
 
     def stop_move_down(self, event):
@@ -73,8 +80,9 @@ class Player:
 
     def start_move_up(self):
         if (self.cont_move_up):
-            self.canvas.move(self.player, 0, -2)
+            self.canvas.move(self.player, 0, -self.move_speed)
             self.canvas.update()
+            self.y -= self.move_speed
             self.root.after(0, self.start_move_up)
 
     def stop_move_up(self, event):
